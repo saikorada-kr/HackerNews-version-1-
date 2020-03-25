@@ -1,0 +1,22 @@
+{
+  "name": "hackernews-v-1",
+  "version": "1.0.0",
+  "description": "This project includes basic functionalities of Hacker News website built entirely using nodejs, html and css(bootstrap).",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saikorada-kr/HackerNews-version-1-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saikorada-kr/HackerNews-version-1-/issues"
+  },
+  "homepage": "https://github.com/saikorada-kr/HackerNews-version-1-#readme",
+  "dependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
