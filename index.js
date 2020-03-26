@@ -7,8 +7,12 @@ let blog = fs.readFileSync("./templates/blog.html", "utf-8");
 let data = fs.readFileSync("./data/data.json", "utf-8");
 dataObject = JSON.parse(data);
 
-function replaceTemplate(blog) {
-  output = blog.replace("{%link%}");
+function replaceTemplate(blog, el) {
+  let output = blog.replace("{%heading%}", el.heading);
+  output = blog.replace("{%url%}", el.url);
+  //output = blog.replace("{%content%}",product )
+
+  return output;
 }
 
 let server = http.createServer((req, res) => {
@@ -17,11 +21,13 @@ let server = http.createServer((req, res) => {
   let request = req.url;
 
   if (request === "/" || request === "/overview") {
-    let result = data.map(el => replaceTemplate(template, el));
+    let result = dataObject.map(el => replaceTemplate(blog, el));
+    let newResult = result.join("");
 
-    let newoverview = overview.replace("{%blog%}", blog);
+    console.log(newResult);
+
     res.writeHead(200, { "content-type": "text/html" });
-    res.end(newoverview);
+    res.end(newResult);
   }
 });
 
